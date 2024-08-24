@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <>
       <Box style={{ backgroundColor: '#1C2534' }}>
-        <Container style={{ marginTop: "5rem" }}>
+        <Container>
           <Grid container spacing={2}>
             <Grid
               sx={{ display: { xs: "none", md: "block", sm: "block" } }}

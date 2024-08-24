@@ -75,7 +75,8 @@
 }
 /* Trade and development end */
 .sipgraph {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+  height: 450px;
 }
 
 /* faq page */
@@ -84,6 +85,13 @@
   padding: 3rem 3rem;
 }
 /* faq page end */
+.css-9z1bus-MuiButtonBase-root-MuiTab-root.Mui-selected{
+  color: #1C2534;
+}
+.faqbox{
+  padding: 1rem;
+}
+
 @media (max-width: 768px) {
   .faqheading{
     padding-top: 1rem;
@@ -98,8 +106,5 @@
   .tradeour{
     padding:2rem 0rem;
     margin-bottom: 1rem;
-  }
-  .faqbox{
-    padding: 10px;
   }
 }

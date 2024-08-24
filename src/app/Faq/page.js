@@ -48,6 +48,7 @@ const FAQSection = () => {
                 bgcolor: "#f4f4f9",
                 borderRadius: 2,
                 boxShadow: 3,
+                
               }}
             >
               {[

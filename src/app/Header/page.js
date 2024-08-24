@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const pages = ["Home", "About", "Career", "Blog", "Contact"];
+const pages = ["Home", "About", "Blog", "Contact"];
 const ResponsiveAppBar = () => {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -55,7 +55,7 @@ const ResponsiveAppBar = () => {
               sx={{
                 flexGrow: 1,
                 display: { xs: "flex", md: "none" },
-                justifyContent: { xs: "end", md: "start", sm: "start" },
+                justifyContent: "end",
               }}
             >
               <IconButton
@@ -106,20 +106,72 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <Button
-                  style={{
-                    color: "white",
-                    fontSize: "18px",
-                    boxShadow: "none",
-                    textTransform: "none",
-                  }}
+                <Link
+                  href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
                   key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  passHref
                 >
-                  {page}
-                </Button>
+                  <Button
+                    style={{
+                      color: "white",
+                      fontSize: "18px",
+                      boxShadow: "none",
+                      textTransform: "none",
+                    }}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
               ))}
+              <style jsx>{`
+                nav {
+                  padding: 1rem;
+                  background: #333;
+                }
+              `}</style>
+            </Box>
+
+            {/* Open An Account Button */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button
+                variant="outlined"
+                style={{
+                  color: "rgb(154 217 83)",
+                  borderColor: "rgb(154 217 83)",
+                  textTransform: "none",
+                }}
+                onClick={() => router.push("/open_account")}
+              >
+                Open An Account
+              </Button>
+            </Box>
+
+            {/* Responsive Open An Account Button */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button
+                variant="outlined"
+                style={{
+                  color: "rgb(154 217 83)",
+                  borderColor: "rgb(154 217 83)",
+                  textTransform: "none",
+                  fontSize: "14px",
+                }}
+                onClick={() => router.push("/open_account")}
+              >
+                Open An Account
+              </Button>
             </Box>
           </Toolbar>
         </Container>
@@ -127,4 +179,5 @@ const ResponsiveAppBar = () => {
     </>
   );
 };
+
 export default ResponsiveAppBar;

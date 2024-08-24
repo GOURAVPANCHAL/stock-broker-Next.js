@@ -1,202 +1,299 @@
 "use client"
-import { useState } from 'react';
+import { useState } from "react";
 import {
-  Container,
   TextField,
-  Button,
+  Slider,
   Typography,
   Box,
+  Button,
   Paper,
   Grid,
-  Divider,
-  Card,
-  CardContent,
-} from '@mui/material';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+  Tabs,
+  Tab,
+} from "@mui/material";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 const SIPCalculator = () => {
-  const [investment, setInvestment] = useState('');
-  const [rateOfReturn, setRateOfReturn] = useState('');
-  const [duration, setDuration] = useState('');
-  const [result, setResult] = useState(null);
-  const [chartData, setChartData] = useState({});
+  const [amount, setAmount] = useState(5000);
+  const [duration, setDuration] = useState(5);
+  const [rate, setRate] = useState(12);
+  const [tabIndex, setTabIndex] = useState(0);
 
-  const calculateSIP = () => {
-    const monthlyRate = rateOfReturn / 12 / 100;
-    const months = duration * 12;
-    const futureValue = investment * (((1 + monthlyRate) ** months - 1) / monthlyRate) * (1 + monthlyRate);
-    setResult(futureValue.toFixed(2));
-
-    // Generate data for the graph
-    const labels = Array.from({ length: months }, (_, i) => i + 1);
-    const data = labels.map((month) =>
-      (investment * (((1 + monthlyRate) ** month - 1) / monthlyRate) * (1 + monthlyRate)).toFixed(2)
-    );
-
-    setChartData({
-      labels: labels.map(label => `Month ${label}`),
-      datasets: [
-        {
-          label: 'Investment Growth Over Time',
-          data: data,
-          borderColor: '#ff6f61',
-          backgroundColor: 'rgba(255, 111, 97, 0.2)',
-          borderWidth: 3,
-          pointRadius: 4,
-          pointBackgroundColor: '#ff6f61',
-          pointBorderColor: '#ffffff',
-          pointHoverRadius: 6,
-          pointHoverBackgroundColor: '#ff8f81',
-          fill: true,
-          tension: 0.3, // Curved lines
-        },
-      ],
-    });
+  const handleTabChange = (event, newIndex) => {
+    setTabIndex(newIndex);
   };
 
+  // SIP Calculation
+  const investedAmount = amount * 12 * duration;
+  const estimatedReturns =
+    investedAmount * Math.pow(1 + rate / 100, duration) - investedAmount;
+  const sipTotalValue = investedAmount + estimatedReturns;
+
+  // Lumpsum Calculation
+  const lumpsumTotalValue = amount * Math.pow(1 + rate / 100, duration);
+
+  // Advanced SIP Calculation (same as SIP for this example)
+  // You might want to replace this with a more complex calculation
+  const advancedSipTotalValue = sipTotalValue;
+
+  // Data for Pie Chart
+  const data =
+    tabIndex === 0
+      ? [
+          { name: "Invested Amount", value: investedAmount, color: "#f97316" },
+          { name: "Estimated Returns", value: estimatedReturns, color: "#6366f1" },
+        ]
+      : tabIndex === 1
+      ? [
+          { name: "Total Value", value: lumpsumTotalValue, color: "#4ade80" },
+        ]
+      : [
+          { name: "Total Value", value: advancedSipTotalValue, color: "#9d6e30" },
+        ];
+
   return (
-    <Container maxWidth="md" sx={{ mt: 5, mb: 5 }}>
-      <Paper elevation={4} sx={{ p: 4, borderRadius: '16px', background: 'linear-gradient(145deg, #e0e0e0, #ffffff)', boxShadow: '10px 10px 20px rgba(0,0,0,0.1)' }}>
-        <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'var(--tradeHeading-color)' }}>
-          SIP Calculator
-        </Typography>
-        <Divider sx={{ mb: 3 }} />
-        <Box component="form" noValidate autoComplete="off">
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
+    <Paper elevation={3} sx={{ padding: 4 }}>
+      <Tabs value={tabIndex} onChange={handleTabChange} centered>
+        <Tab label="SIP Investment" />
+        <Tab label="Lumpsum Amount" />
+        <Tab label="Advance SIP" />
+      </Tabs>
+
+      {tabIndex === 0 && (
+        <Grid container spacing={4} sx={{ marginTop: 2 }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              SIP Returns Estimator
+            </Typography>
+            <Box mt={2}>
               <TextField
-                label="Monthly Investment"
+                label="Enter SIP Amount"
                 variant="outlined"
                 fullWidth
-                value={investment}
-                onChange={(e) => setInvestment(e.target.value)}
-                InputProps={{ style: { fontSize: '1.2rem' } }}
-                sx={{ background: '#f9f9f9', borderRadius: '8px' }}
-              />
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <TextField
-                label="Rate of Return (Annual %)"
-                variant="outlined"
-                fullWidth
-                value={rateOfReturn}
-                onChange={(e) => setRateOfReturn(e.target.value)}
-                InputProps={{ style: { fontSize: '1.2rem' } }}
-                sx={{ background: '#f9f9f9', borderRadius: '8px' }}
-              />
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <TextField
-                label="Investment Duration (Years)"
-                variant="outlined"
-                fullWidth
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                InputProps={{ style: { fontSize: '1.2rem' } }}
-                sx={{ background: '#f9f9f9', borderRadius: '8px' }}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{
-              mt: 4,
-              p: 1.5,
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              borderRadius: '8px',
-              backgroundColor: 'var(--main-bg-color)',
-              boxShadow: '0px 10px 15px rgba(154, 217, 83, 0.4)',
-              '&:hover': {
-                backgroundColor: '#86c847',
-                boxShadow: '0px 15px 20px rgba(134, 200, 71, 0.6)',
-              },
-            }}
-            onClick={calculateSIP}
-          >
-            Calculate
-          </Button>
-        </Box>
-        {result && (
-          <>
-            <Card elevation={6} sx={{ mt: 5, p: 4, borderRadius: '12px', background: 'linear-gradient(145deg, #ffffff, #f3f3f3)' }}>
-              <CardContent>
-                <Typography variant="h6" align="center" gutterBottom sx={{ fontWeight: 'bold', color: 'var(--tradeHeading-color)' }}>
-                  Estimated Future Value
-                </Typography>
-                <Divider sx={{ mb: 2 }} />
-                <Typography variant="h2" align="center" sx={{ fontWeight: 'bold', color: '#28a745', fontSize: '3rem' }}>
-                  ₹ {result}
-                </Typography>
-                <Typography variant="subtitle1" align="center" sx={{ mt: 2, color: '#6c757d', fontStyle: 'italic' }}>
-                  Based on your monthly investment of ₹{investment}, at an annual return rate of {rateOfReturn}%, over a period of {duration} years.
-                </Typography>
-              </CardContent>
-            </Card>
-            <Box sx={{ mt: 5, p: 2, backgroundColor: '#f9f9f9', borderRadius: '12px' }}>
-              <Typography variant="h6" align="center" sx={{ fontWeight: 'bold', color: 'var(--tradeHeading-color)', mb: 3 }}>
-                Investment Growth Over Time
-              </Typography>
-              <Line
-                data={chartData}
-                options={{
-                  maintainAspectRatio: true,
-                  plugins: {
-                    legend: {
-                      display: true,
-                      position: 'top',
-                      labels: {
-                        color: '#ff6f61',
-                        font: {
-                          size: 14,
-                        },
-                      },
-                    },
-                    tooltip: {
-                      backgroundColor: '#ff6f61',
-                      titleFont: { size: 16 },
-                      bodyFont: { size: 14 },
-                      callbacks: {
-                        label: (context) => `₹${context.raw}`,
-                      },
-                    },
-                  },
-                  scales: {
-                    x: {
-                      grid: {
-                        display: false,
-                      },
-                      ticks: {
-                        color: '#6c757d',
-                      },
-                    },
-                    y: {
-                      grid: {
-                        color: '#f3f3f3',
-                      },
-                      ticks: {
-                        color: '#6c757d',
-                        callback: (value) => `₹${value}`,
-                      },
-                    },
-                  },
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                InputProps={{
+                  startAdornment: "₹",
                 }}
               />
             </Box>
-          </>
-        )}
-      </Paper>
-    </Container>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Select Duration ({duration} Years)
+              </Typography>
+              <Slider
+                value={duration}
+                onChange={(e, newValue) => setDuration(newValue)}
+                min={1}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Expected Rate of Return ({rate}%)
+              </Typography>
+              <Slider
+                value={rate}
+                onChange={(e, newValue) => setRate(newValue)}
+                min={8}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+          </Grid>
 
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              The total value of your SIP investment after {duration} Years will be
+            </Typography>
+            <Typography variant="h3" color="primary" gutterBottom>
+              ₹ {sipTotalValue.toLocaleString()}
+            </Typography>
+            <PieChart width={300} height={300}>
+              <Pie
+                data={data}
+                dataKey="value"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+            <Box mt={4}>
+              <Button variant="contained" color="primary" fullWidth>
+                Invest Now
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      )}
 
+      {tabIndex === 1 && (
+        <Grid container spacing={4} sx={{ marginTop: 2 }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              Lumpsum Returns Estimator
+            </Typography>
+            <Box mt={2}>
+              <TextField
+                label="Enter Lumpsum Amount"
+                variant="outlined"
+                fullWidth
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                InputProps={{
+                  startAdornment: "₹",
+                }}
+              />
+            </Box>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Select Duration ({duration} Years)
+              </Typography>
+              <Slider
+                value={duration}
+                onChange={(e, newValue) => setDuration(newValue)}
+                min={1}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Expected Rate of Return ({rate}%)
+              </Typography>
+              <Slider
+                value={rate}
+                onChange={(e, newValue) => setRate(newValue)}
+                min={8}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+          </Grid>
 
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              The total value of your Lumpsum investment after {duration} Years will be
+            </Typography>
+            <Typography variant="h3" color="primary" gutterBottom>
+              ₹ {lumpsumTotalValue.toLocaleString()}
+            </Typography>
+            <PieChart width={300} height={300}>
+              <Pie
+                data={data}
+                dataKey="value"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+            <Box mt={4}>
+              <Button variant="contained" color="primary" fullWidth>
+                Invest Now
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      )}
 
+      {tabIndex === 2 && (
+        <Grid container spacing={4} sx={{ marginTop: 2 }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              Advanced SIP Calculator
+            </Typography>
+            <Box mt={2}>
+              <TextField
+                label="Enter SIP Amount"
+                variant="outlined"
+                fullWidth
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                InputProps={{
+                  startAdornment: "₹",
+                }}
+              />
+            </Box>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Select Duration ({duration} Years)
+              </Typography>
+              <Slider
+                value={duration}
+                onChange={(e, newValue) => setDuration(newValue)}
+                min={1}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+            <Box mt={4}>
+              <Typography gutterBottom>
+                Expected Rate of Return ({rate}%)
+              </Typography>
+              <Slider
+                value={rate}
+                onChange={(e, newValue) => setRate(newValue)}
+                min={8}
+                max={30}
+                marks
+                valueLabelDisplay="auto"
+              />
+            </Box>
+            {/* Advanced SIP options can be added here */}
+          </Grid>
 
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>
+              The total value of your investment after {duration} Years will be
+            </Typography>
+            <Typography variant="h3" color="primary" gutterBottom>
+              ₹ {advancedSipTotalValue.toLocaleString()}
+            </Typography>
+            <PieChart width={300} height={300}>
+              <Pie
+                data={data}
+                dataKey="value"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+            <Box mt={4}>
+              <Button variant="contained" color="primary" fullWidth>
+                Invest Now
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      )}
+    </Paper>
   );
 };
 
