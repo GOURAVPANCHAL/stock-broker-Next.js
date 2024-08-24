@@ -8,7 +8,6 @@ import emailjs from '@emailjs/browser';
 import Header from "../Header/page";
 import Footer from "../Footer/page";
 import "../globals.css"
-import "../contact/contact.css"
 import Link from 'next/link';
 const Contact = () => {
     function sendEmail(e) {
