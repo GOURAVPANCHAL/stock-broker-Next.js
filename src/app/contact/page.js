@@ -23,6 +23,7 @@ import {
 import Header from "../Header/page";
 import Footer from "../Footer/page";
 import "../globals.css";
+
 const Contact = () => {
   return (
     <>
@@ -54,12 +55,12 @@ const Contact = () => {
                   variant="h5"
                   sx={{ fontWeight: "bold", marginBottom: 2 }}
                 >
-                  Let's get in touch
+                  Let&apos;s get in touch
                 </Typography>
                 <Typography variant="body1" sx={{ marginBottom: 3 }}>
                   If you have questions or would like more information on our
-                  works, please complete the form and we'll aim to get back to
-                  you within 24 hours.
+                  works, please complete the form and we&apos;ll aim to get back
+                  to you within 24 hours.
                 </Typography>
 
                 <Box sx={{ marginBottom: 2 }}>

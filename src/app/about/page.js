@@ -4,6 +4,8 @@ import { Box, Grid, Typography, Button, Container } from "@mui/material";
 import Header from "../Header/page";
 import Footer from "../Footer/page";
 import "../globals.css";
+import onlineImage from '../assets/online-image.jpeg'
+import Image from "next/image";
 const About = () => {
   return (
     <>
@@ -36,12 +38,13 @@ const About = () => {
         >
           <Grid item xs={12} md={6}>
             <Box sx={{ position: "relative", textAlign: "center" }}>
-              <img
-                src="https://images.unsplash.com/photo-1577565177023-d0f29c354b69?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI3Njk4OTB8&ixlib=rb-4.0.3&q=85"
+              <Image
+                src={onlineImage}
                 alt="image"
                 style={{
                   width: "100%",
                   maxWidth: 350,
+                  height:'100%',
                   borderRadius: "0.75rem",
                   boxShadow: "rgba(0, 0, 0, 0.2) 0px 8px 24px",
                   border: "6px solid var(--white-color)",
