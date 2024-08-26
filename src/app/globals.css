@@ -155,3 +155,7 @@
   color: #1c2534ed;
   transform: scale(1.1);
 }
+
+a{
+  text-decoration: none;
+}

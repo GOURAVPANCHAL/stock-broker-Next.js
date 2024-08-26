@@ -102,11 +102,6 @@ const BlogPage = () => {
                     {post.summary}
                   </Typography>
                 </CardContent>
-                <Box sx={{ textAlign: "center", mb: 2 }}>
-                  <Button variant="contained" color="primary" href={post.link}>
-                    Read More
-                  </Button>
-                </Box>
               </Card>
             </Grid>
           ))}
