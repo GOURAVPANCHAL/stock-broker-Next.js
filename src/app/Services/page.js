@@ -4,7 +4,7 @@ import "./servic.css";
 import { Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-function Page() {
+function Services() {
   const router = useRouter();
   return (
     <>
@@ -72,4 +72,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Services;
