@@ -107,7 +107,7 @@ const Home = () => {
                   src={homeImage}
                   width={800}
                   height={600}
-                  layout="responsive"
+                  layout="responsiv"
                 />
               </Box>
             </Grid>
