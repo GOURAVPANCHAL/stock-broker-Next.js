@@ -3,21 +3,19 @@ import React, { useState } from "react";
 import {
   Button,
   TextField,
-  Tab,
-  Tabs,
   Typography,
   Box,
   Container,
   Grid,
 } from "@mui/material";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 import invest from "../assets/invest2.png";
 import Image from "next/image";
+
 function ApplicationForm() {
   const [tabValue, setTabValue] = useState(0);
   const [mobileNumber, setMobileNumber] = useState("");
+  const [name, setName] = useState("");
   const [emailId, setEmailId] = useState("");
 
   const handleTabChange = (event, newValue) => {
@@ -26,7 +24,6 @@ function ApplicationForm() {
 
   return (
     <>
-      <Header />
       <Box>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center", mt: 4 }}>
@@ -39,35 +36,20 @@ function ApplicationForm() {
             <Box sx={{ mt: 2 }}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
-              <Tabs
-                value={tabValue}
-                onChange={handleTabChange}
-                aria-label="application tabs"
-                centered
-                sx={{ mb: 2, backgroundColor: "#1C2534", boxShadow:'0 2px 10px #e5e5e5',  borderRadius: "2rem" }}
-              >
-                <Tab
-                  sx={{
-                    color: "white",
-                    fontWeight: "bold",
-                    borderRadius: "2rem",
-                  }}
-                  label="New Application"
-                />
-                <Tab
-                  sx={{
-                    color: "white",
-                    fontWeight: "bold",
-                    borderRadius: "2rem",
-                  }}
-                  label="Resume Application"
-                />
-              </Tabs>
-                  {tabValue === 0 && (
+                  
                     <Box>
                       <Typography variant="h6" gutterBottom>
                         New Application Details
                       </Typography>
+                      <TextField
+                        fullWidth
+                        label="Name"
+                        placeholder="Enter your name"
+                        variant="outlined"
+                        margin="normal"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
                       <TextField
                         fullWidth
                         label="Mobile Number"
@@ -97,48 +79,9 @@ function ApplicationForm() {
                         }}
                         disabled={!mobileNumber || !emailId}
                       >
-                        Get OTP
-                      </Button>
-                      <Typography
-                        variant="caption"
-                        display="block"
-                        sx={{ mt: 1, color: "#757575" }}
-                      >
-                        OTP will be sent to you on the mobile number provided
-                      </Typography>
-                    </Box>
-                  )}
-                  {tabValue === 1 && (
-                    <Box>
-                      <Typography variant="h6" gutterBottom>
-                        Resume Application Details
-                      </Typography>
-                      {/* Add the content for the Resume Application tab here */}
-                      <Typography variant="body1" gutterBottom>
-                        Please provide your application reference number to
-                        resume.
-                      </Typography>
-                      <TextField
-                        fullWidth
-                        label="Reference Number"
-                        placeholder="Enter your application reference number"
-                        variant="outlined"
-                        margin="normal"
-                      />
-                      <Button
-                        fullWidth
-                        variant="contained"
-                        sx={{
-                          mt: 2,
-                          py: 1.5,
-                          backgroundColor: "#1C2534",
-                          "&:hover": { backgroundColor: "#1C2534" },
-                        }}
-                      >
-                        Resume
+                        Submit
                       </Button>
                     </Box>
-                  )}
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Box
@@ -165,7 +108,6 @@ function ApplicationForm() {
           </Box>
         </Container>
       </Box>
-      <Footer />
     </>
   );
 }
