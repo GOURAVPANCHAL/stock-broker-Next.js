@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
 import Testimonials from "./Testimonials/page";
 import Faq from "./Faq/page";
-import Services from "./services/page"; // Ensure this path is correct
+import Services from "./services/pge"; // Ensure this path is correct
 import SIP from "./sip/page";
 import SIPGraph from "./sipgraph/page";
 import TabItem from "./tabitem/page";
