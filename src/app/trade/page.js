@@ -1,14 +1,11 @@
 import { Container, Typography, Grid, Paper, Box } from "@mui/material";
 import React from "react";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 import trade from "../assets/trade.webp";
 import Image from "next/image";
 function page() {
   return (
     <>
-      <Header />
       <Box className="tradeandinvestment" mb={5}>
         <Container>
           <Typography variant="h2"><b>Trade and investment</b>
@@ -164,8 +161,6 @@ function page() {
           </Typography>
         </Box>
       </Container>
-
-      <Footer />
     </>
   );
 }

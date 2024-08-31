@@ -1,12 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 const page = () => {
   return (
     <div>
-      <Header />
       <Box className="tradeandinvestment" mb={5}>
         <Container>
           <Typography variant="h2">
@@ -88,7 +85,6 @@ const page = () => {
           </Typography>
         </Box>
       </Container>
-      <Footer />
     </div>
   );
 };

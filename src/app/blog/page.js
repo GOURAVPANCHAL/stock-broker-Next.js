@@ -10,8 +10,6 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import Image from "next/image";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
@@ -59,7 +57,6 @@ const BlogPage = () => {
         <meta name="twitter:description" content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management." />
         <meta name="twitter:image" content="/path-to-image/blog-twitter.jpg" />
       </Head>
-      <Header />
       <Box className="tradeandinvestment">
         <Container>
           <Typography variant="h2">
@@ -122,7 +119,6 @@ const BlogPage = () => {
           ))}
         </Grid>
       </Container>
-      <Footer />
     </>
   );
 };

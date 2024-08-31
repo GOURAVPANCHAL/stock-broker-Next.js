@@ -20,8 +20,6 @@ import {
   Email,
   Phone,
 } from "@mui/icons-material";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 import Head from "next/head";
 
@@ -60,7 +58,6 @@ const Contact = () => {
           content="/path-to-image/contact-twitter.jpg"
         />
       </Head>
-      <Header />
       <Box className="tradeandinvestment">
         <Container>
           <Typography variant="h2" component="h1" gutterBottom>
@@ -320,7 +317,6 @@ const Contact = () => {
           </Grid>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 };

@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { Box, Grid, Typography, Button, Container } from "@mui/material";
-import Header from "../Header/page";
-import Footer from "../Footer/page";
 import "../globals.css";
 import onlineImage from '../assets/online-image.jpeg';
 import Image from "next/image";
@@ -20,7 +18,6 @@ const About = () => {
         <meta name="keywords" content="about us, NXTGEN Broker, trading services, financial markets, stock trading" />
         <meta name="author" content="NXTGEN Broker" />
       </Head>
-      <Header />
       <Box className="tradeandinvestment">
         <Container>
           <Typography variant="h2">
@@ -165,7 +162,6 @@ const About = () => {
           </Grid>
         </Grid>
       </Box>
-      <Footer />
     </>
   );
 };
