@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import "./servic.css";
+import "../service/service.css";
 import { Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-function Services() {
-  const router = useRouter();
+const page = () => {
+    const router = useRouter();
   return (
     <>
       <section className="container">
@@ -69,7 +69,7 @@ function Services() {
         </section>
       </section>
     </>
-  );
+  )
 }
 
-export default Services;
+export default page
