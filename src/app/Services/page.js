@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import "./servic.css";
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
+
 function Page() {
   const router = useRouter();
   return (
@@ -20,54 +21,48 @@ function Page() {
           <div className="card__bx" style={{ "--clr": "#89ec5b" }}>
             <div className="card__data">
               <div className="card__icon">
-                <i className="fa-solid fa-paintbrush"></i>
+                <i className="fa-solid fa-chart-line"></i> {/* Changed icon */}
               </div>
               <div className="card__content">
-                <h3>Trade & Invest</h3>
-                <p>
+                <Typography variant="h3">Trade & Invest</Typography>
+                <Typography>
                   Empower your financial future with smart trading strategies
                   and diverse investment opportunities tailored to grow your
-                  wealth
-                </p>
-                <a href="#" onClick={() => router.push("/trade")}>
-                  Read More
-                </a>
+                  wealth.
+                </Typography>
+                <a onClick={() => router.push("/trade")}>Read More</a>
               </div>
             </div>
           </div>
           <div className="card__bx" style={{ "--clr": "#eb5ae5" }}>
             <div className="card__data">
               <div className="card__icon">
-                <i className="fa-solid fa-code"></i>
+                <i className="fa-solid fa-cogs"></i> {/* Changed icon */}
               </div>
               <div className="card__content">
-                <h3>Mutual Funds & SIP</h3>
-                <p>
+                <Typography variant="h3">Mutual Funds & SIP</Typography>
+                <Typography>
                   Optimize your savings with Mutual Funds and SIPs, offering a
                   disciplined approach to investing with potential for high
                   returns and diversification.
-                </p>
-                <a href="#" onClick={() => router.push("/mutualfunds")}>
-                  Read More
-                </a>
+                </Typography>
+                <a onClick={() => router.push("/mutualfunds")}>Read More</a>
               </div>
             </div>
           </div>
-          <div className="card__bx" style={{ "--clr": "#89ec5b" }}>
+          <div className="card__bx" style={{ "--clr": "#ff6f61" }}>
             <div className="card__data">
               <div className="card__icon">
-                <i className="fa-solid fa-paintbrush"></i>
+                <i className="fa-solid fa-shield-alt"></i> {/* Changed icon */}
               </div>
               <div className="card__content">
-                <h3>Insurance</h3>
-                <p>
-                  Empower your financial future with smart trading strategies
-                  and diverse investment opportunities tailored to grow your
-                  wealth
-                </p>
-                <a href="#" onClick={() => router.push("/insurance")}>
-                  Read More
-                </a>
+                <Typography variant="h3">Insurance</Typography>
+                <Typography>
+                  Secure your future with our comprehensive insurance solutions.
+                  From life and health to property and auto, we provide tailored
+                  coverage to safeguard you and your loved ones.
+                </Typography>
+                <a onClick={() => router.push("/insurance")}>Read More</a>
               </div>
             </div>
           </div>
