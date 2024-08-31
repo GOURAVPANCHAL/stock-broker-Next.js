@@ -23,17 +23,50 @@ import {
 import Header from "../Header/page";
 import Footer from "../Footer/page";
 import "../globals.css";
+import Head from "next/head";
 
 const Contact = () => {
   return (
     <>
+      <Head>
+        <title>Contact Us - NXTGEN Broker</title>
+        <meta
+          name="description"
+          content="Get in touch with NXTGEN Broker for any inquiries or support. We aim to respond within 24 hours."
+        />
+        <meta
+          name="keywords"
+          content="contact, NXTGEN Broker, support, inquiry, stock broker"
+        />
+        <meta name="author" content="NXTGEN Broker" />
+        <meta property="og:title" content="Contact Us - NXTGEN Broker" />
+        <meta
+          property="og:description"
+          content="Contact NXTGEN Broker for any questions or support. We're here to help!"
+        />
+        <meta property="og:image" content="/path-to-image/contact-og.jpg" />
+        <meta
+          property="og:url"
+          content="https://www.nxtgenbroker.com/contact"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - NXTGEN Broker" />
+        <meta
+          name="twitter:description"
+          content="Get in touch with NXTGEN Broker for any inquiries or support. We aim to respond within 24 hours."
+        />
+        <meta
+          name="twitter:image"
+          content="/path-to-image/contact-twitter.jpg"
+        />
+      </Head>
       <Header />
       <Box className="tradeandinvestment">
         <Container>
-          <Typography variant="h2">
+          <Typography variant="h2" component="h1" gutterBottom>
             <b>Contact Us</b>
           </Typography>
-          <Typography variant="h5">
+          <Typography variant="h5" component="h2" gutterBottom>
             NXTGEN broker and the right to development
           </Typography>
         </Container>
@@ -106,6 +139,7 @@ const Contact = () => {
                   </Box>
                 </Box>
 
+                {/* Uncomment and adjust the social media section if needed */}
                 {/* <Box>
                   <Typography variant="body2" sx={{ marginBottom: 1 }}>
                     Connect with us:

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../Services/servic.css";
+import "./servic.css";
 import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 function Page() {
@@ -48,6 +48,24 @@ function Page() {
                   returns and diversification.
                 </p>
                 <a href="#" onClick={() => router.push("/mutualfunds")}>
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="card__bx" style={{ "--clr": "#89ec5b" }}>
+            <div className="card__data">
+              <div className="card__icon">
+                <i className="fa-solid fa-paintbrush"></i>
+              </div>
+              <div className="card__content">
+                <h3>Insurance</h3>
+                <p>
+                  Empower your financial future with smart trading strategies
+                  and diverse investment opportunities tailored to grow your
+                  wealth
+                </p>
+                <a href="#" onClick={() => router.push("/insurance")}>
                   Read More
                 </a>
               </div>

@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const pages = ["Home", "About", "Blog", "Contact"];
+const pages = ["Home", "About", "Services" , "SIP" , "Blog", "Contact"];
 const ResponsiveAppBar = () => {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);

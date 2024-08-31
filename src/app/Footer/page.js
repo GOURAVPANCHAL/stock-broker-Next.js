@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import {
   Box,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Select,
   TextField,
   Typography,
 } from "@mui/material";
@@ -16,9 +12,12 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Image from "next/image";
 import "../Footer/footer.css";
+import { Link } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const [age, setAge] = useState("");
+  const router = useRouter();
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -26,7 +25,7 @@ const Footer = () => {
 
   return (
     <>
-      <Box style={{ backgroundColor: '#1C2534' }}>
+      <Box mt={2} style={{ backgroundColor: '#1C2534'}}>
         <Container>
           <Grid container spacing={2}>
             <Grid
@@ -117,12 +116,6 @@ const Footer = () => {
               <Typography mb={2} fontSize="16px" color="white" lineHeight="2">
                 Want to stay up to date with news and updates about our product? Subscribe.
               </Typography>
-              <TextField
-                style={{ width: "100%", color: 'white' }}
-                id="outlined-basic"
-                label="email@provider.com"
-                variant="outlined"
-              />
             </Grid>
           </Grid>
           <hr style={{ marginTop: "2rem", marginBottom: "2rem" }} />
@@ -130,62 +123,26 @@ const Footer = () => {
 
         <Container style={{ paddingBottom: "1rem", color: 'white' }}>
           <Grid container style={{ alignItems: "center" }}>
-            <Grid item md={2} xs={12}>
-              <Typography fontSize="16px" color="#57585D">
-                © 2022 NXTGEN broker, Inc.
+            <Grid item md={11} xs={12}>
+              <Typography fontSize="16px" color="white">
+              © Copyright 2024, <span style={{ color: "rgb(154, 217, 83)" }}>NXTGEN BROKER</span>. Designed by <span  style={{cursor:'pointer', color:'rgb(154, 217, 83)'}} onClick={() => router.push("https://www.digiindiasolutions.com/")}> DIGI India Solutions</span >
+              
               </Typography>
             </Grid>
-            <Grid item mt={2} mb={2} xs={12} md={7}>
-              <Box
-                sx={{ display: { xs: "inline-grid", sm: "flex", md: "flex" } }}
-                justifyContent="space-evenly"
-              >
-                <Typography fontSize="16px" color="#57585D">
-                  Privacy Policy
-                </Typography>
-                <Typography fontSize="16px" color="#57585D">
-                  Terms of Service
-                </Typography>
-                <Typography fontSize="16px" color="#57585D">
-                  Cookie Settings
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={1}>
               <Box
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <FormControl style={{ width: "65%" }}>
-                  <InputLabel id="demo-simple-select-label">
-                    Select Language
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Select Language"
-                    onChange={handleChange}
-                  >
-                    <MenuItem value={"English"}>English(US)</MenuItem>
-                    <MenuItem value={"Hindi"}>Hindi</MenuItem>
-                    <MenuItem value={"Sanskrit"}>Sanskrit</MenuItem>
-                    <MenuItem value={"Japnish"}>Japnish</MenuItem>
-                    <MenuItem value={"Aribian"}>Aribian</MenuItem>
-                    <MenuItem value={"Chinese"}>Chinese</MenuItem>
-                    <MenuItem value={"Franch"}>Franch</MenuItem>
-                    <MenuItem value={"Japani"}>Japani</MenuItem> {/* Fixed typo */}
-                  </Select>
-                </FormControl>
                 <Typography>
-                  <TwitterIcon style={{ color: "#57585D" }} />
+                  <TwitterIcon style={{ color: "white" }} />
                 </Typography>
                 <Typography>
-                  <FacebookIcon style={{ color: "#57585D" }} />
+                  <FacebookIcon style={{ color: "white" }} />
                 </Typography>
                 <Typography>
-                  <LinkedInIcon style={{ color: "#57585D" }} />
+                  <LinkedInIcon style={{ color: "white" }} />
                 </Typography>
               </Box>
             </Grid>

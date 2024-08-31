@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./globals.css"
 import Testimonials from "./Testimonials/page"
 import Faq from "./Faq/page"
-import Services from "./Services/page"
-import SIP from './sipcalculator/page'
+import Services from "./services/page"
+import SIP from './sip/page'
 import SIPGraph from './sipgraph/page'
 import TabItem from './tabitem/page'
 import TradeOnOur from './tradeonour/page'

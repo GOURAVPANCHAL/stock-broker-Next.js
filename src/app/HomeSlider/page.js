@@ -7,25 +7,54 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
 import Image from "next/image"; // Correctly import Image from next/image
 import "./page.css";
-
+import Head from "next/head";
+import homeImage from "../assets/profitmax-app.png";
+import company1 from "../assets/nse.png";
+import company2 from "../assets/bse.jpg";
+import company3 from "../assets/nsx.png";
+import company4 from "../assets/mcx.jpg";
 const Home = () => {
   const router = useRouter();
 
   return (
     <>
+      <Head>
+        <title>
+          NXTGEN Broker - Trade Smartly with Trusted Stock Broker Services
+        </title>
+        <meta
+          name="description"
+          content="Experience seamless trading with NXTGEN Broker, your trusted partner in the stock market. We offer reliable stock broker services to help you make informed decisions and achieve your financial goals."
+        />
+        <meta
+          name="keywords"
+          content="NXTGEN Broker, stock trading, stock broker services, online trading, investment, financial goals, reliable broker, trading platform"
+        />
+        <meta name="author" content="NXTGEN Broker" />
+        <meta
+          property="og:title"
+          content="NXTGEN Broker - Trade Smartly with Trusted Stock Broker Services"
+        />
+        <meta
+          property="og:description"
+          content="Seamless trading experience with NXTGEN Broker. Reliable stock broker services to achieve your financial goals."
+        />
+        <meta property="og:image" content="/path-to-image/og-image.jpg" />
+        <meta property="og:url" content="https://www.nxtgenbroker.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="NXTGEN Broker - Trade Smartly with Trusted Stock Broker Services"
+        />
+        <meta
+          name="twitter:description"
+          content="NXTGEN Broker offers reliable stock broker services for seamless trading and informed decision-making."
+        />
+        <meta name="twitter:image" content="/path-to-image/twitter-image.jpg" />
+      </Head>
       <Box sx={{ backgroundColor: "#1C2534" }}>
         <Container id="Home">
-          <Grid
-            id="home_Section"
-            container
-            // sx={{
-            //   flexDirection: {
-            //     xs: "column-reverse",
-            //     sm: "column-reverse",
-            //     md: "row", // Changed from 'inherit' to 'row'
-            //   },
-            // }}
-          >
+          <Grid id="home_Section" container>
             <Grid id="homeContent" item xs={12} md={6}>
               <Box sx={{ marginTop: { xs: "1rem", sm: "3rem", md: "5rem" } }}>
                 <Typography
@@ -75,9 +104,9 @@ const Home = () => {
               <Box mt={5}>
                 <Image
                   alt="home image"
-                  src="/Image.webp" // Ensure that the image path is correct
-                  width={800} // Set the correct width
-                  height={600} // Set the correct height
+                  src={homeImage}
+                  width={800}
+                  height={600}
                   layout="responsive"
                 />
               </Box>
@@ -102,14 +131,14 @@ const Home = () => {
                 justifyContent: "space-between",
               }}
             >
-              {["slack", "netflix", "google", "airbnb", "unicef", "adobe", "microsoft", "ship"].map(
+              {[company1, company2, company3, company4].map(
                 (company, index) => (
                   <Grid item xs={6} md={1} key={index}>
                     <Image
-                      alt={`${company} image`}
-                      src={`/${company}.webp`} // Ensure image paths are correct
-                      width={146}
-                      height={94}
+                      alt={`Company ${index + 1} image`}
+                      src={company}
+                      width={200}
+                      height={100}
                       layout="responsive"
                     />
                   </Grid>
@@ -128,9 +157,8 @@ const Home = () => {
         }}
       >
         <Container>
-          <Grid container spacing={3}>
-            <Grid item md={1}></Grid>
-            <Grid item xs={12} md={5}>
+          <Grid container spacing={1}>
+            <Grid item xs={12} md={4}>
               <Box>
                 <Image
                   alt="home2 image"
@@ -142,7 +170,7 @@ const Home = () => {
               </Box>
             </Grid>
             <Grid item md={1}></Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={7}>
               <Typography
                 variant="h3"
                 sx={{
@@ -160,9 +188,24 @@ const Home = () => {
                   mt: 3,
                 }}
               >
-                <b>NXTGEN broker</b> is designed to be inclusive, by being able
-                to use your own device to help hybrid-conference teams create,
-                collaborate, and celebrate together.
+                <b>NXTGEN broker</b> (formerly known as XYZ Securities Pvt.
+                Ltd.) began its journey in 2012. As a premier stock broking
+                house in India, NXTGEN Broker offers a comprehensive range of
+                investment opportunities, including Equities, Derivatives,
+                Currency, Commodities, IPOs, and Mutual Funds.
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: "16px", sm: "20px", md: "20px" },
+                  color: "#57585D",
+                  mt: 3,
+                }}
+              >
+                At NXTGEN Broker, our mission is to empower investors with
+                cutting-edge trading software and effective investment tools.
+                Our focus is on delivering exceptional trading experiences that
+                help you optimize your investment strategies and achieve your
+                financial goals.
               </Typography>
             </Grid>
           </Grid>

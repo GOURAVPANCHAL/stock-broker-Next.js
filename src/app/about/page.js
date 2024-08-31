@@ -1,14 +1,25 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Grid, Typography, Button, Container } from "@mui/material";
 import Header from "../Header/page";
 import Footer from "../Footer/page";
 import "../globals.css";
-import onlineImage from '../assets/online-image.jpeg'
+import onlineImage from '../assets/online-image.jpeg';
 import Image from "next/image";
+import Head from "next/head";
+import { useRouter } from 'next/navigation'; // Updated import
+
 const About = () => {
+  const router = useRouter();
+
   return (
     <>
+      <Head>
+        <title>About Us - NXTGEN Broker</title>
+        <meta name="description" content="Learn about NXTGEN Broker, our story, what we do, and who we are. Explore our commitment to providing top-notch trading services." />
+        <meta name="keywords" content="about us, NXTGEN Broker, trading services, financial markets, stock trading" />
+        <meta name="author" content="NXTGEN Broker" />
+      </Head>
       <Header />
       <Box className="tradeandinvestment">
         <Container>
@@ -16,10 +27,11 @@ const About = () => {
             <b>About Us</b>
           </Typography>
           <Typography variant="h5">
-            NXTGEN broker and the right to development
+            NXTGEN Broker and the Right to Development
           </Typography>
         </Container>
       </Box>
+      
       <Box
         component="section"
         sx={{
@@ -44,7 +56,7 @@ const About = () => {
                 style={{
                   width: "100%",
                   maxWidth: 350,
-                  height:'100%',
+                  height: '100%',
                   borderRadius: "0.75rem",
                   boxShadow: "rgba(0, 0, 0, 0.2) 0px 8px 24px",
                   border: "6px solid var(--white-color)",
@@ -108,8 +120,8 @@ const About = () => {
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography variant="h5" style={{color:'#9ad953'}}>
-            Our Company Story
+            <Typography variant="h5" style={{ color: '#9ad953' }}>
+              Our Company Story
             </Typography>
             <Typography
               variant="h4"
@@ -122,7 +134,7 @@ const About = () => {
               variant="body1"
               sx={{ color: "var(--title-color)", mb: 5 }}
             >
-             Trading is the art and science of buying and selling financial instruments, such as stocks bonds currencies.
+              NXTGEN Broker (formerly known as XYZ Securities Pvt. Ltd.) began its journey in 2012. As a premier stock broking house in India, NXTGEN Broker offers a comprehensive range of investment opportunities, including Equities, Derivatives, Currency, Commodities, IPOs, and Mutual Funds.
             </Typography>
             <Typography
               variant="h4"
@@ -135,7 +147,7 @@ const About = () => {
               variant="body1"
               sx={{ color: "var(--title-color)", mb: 5 }}
             >
-             Trading in financial markets involves a wide range of strategies that traders employ to make informed decisions. From trading to swing trading and long-term investing, each strategy has its own set of principles and risk factors.
+              At NXTGEN Broker, our mission is to empower investors with cutting-edge trading software and effective investment tools. Our focus is on delivering exceptional trading experiences that help you optimize your investment strategies and achieve your financial goals. With a commitment to innovation and customer satisfaction, we strive to provide solutions that cater to both novice and experienced investors. Join us and experience a new era of trading excellence.
             </Typography>
             <Box sx={{ display: "flex", gap: 2 }}>
               <Button
@@ -145,7 +157,7 @@ const About = () => {
                   borderColor: "rgb(154 217 83)",
                   textTransform: "none",
                 }}
-                onClick={() => router.push("/contact")}
+                onClick={() => router.push("/open_account")}
               >
                 Open An Account
               </Button>

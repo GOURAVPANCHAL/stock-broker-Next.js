@@ -78,7 +78,7 @@ const Testimonial = () => {
           <Swiper
             spaceBetween={30}
             centeredSlides={false}
-            autoplay={{ delay: 1000, disableOnInteraction: false }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             navigation={true}
             loop={true}

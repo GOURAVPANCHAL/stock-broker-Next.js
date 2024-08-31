@@ -16,6 +16,7 @@ import "../globals.css";
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
 import blog3 from "../assets/blog3.jpeg";
+import Head from "next/head";
 
 const BlogPage = () => {
   const posts = [
@@ -44,6 +45,20 @@ const BlogPage = () => {
 
   return (
     <>
+    <Head>
+        <title>Blog - NXTGEN Broker</title>
+        <meta name="description" content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management." />
+        <meta name="keywords" content="blog, stock market trends, investment strategies, diversified portfolio, NXTGEN Broker" />
+        <meta name="author" content="NXTGEN Broker" />
+        <meta property="og:title" content="Blog - NXTGEN Broker" />
+        <meta property="og:description" content="Stay updated with the latest insights, trends, and strategies in the world of investing with NXTGEN Broker's blog." />
+        <meta property="og:image" content="/path-to-image/blog-og.jpg" />
+        <meta property="og:url" content="https://www.nxtgenbroker.com/blog" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog - NXTGEN Broker" />
+        <meta name="twitter:description" content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management." />
+        <meta name="twitter:image" content="/path-to-image/blog-twitter.jpg" />
+      </Head>
       <Header />
       <Box className="tradeandinvestment">
         <Container>
