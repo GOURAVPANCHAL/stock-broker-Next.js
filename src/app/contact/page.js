@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Box,
@@ -24,6 +25,27 @@ import "../globals.css";
 import Head from "next/head";
 
 const Contact = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Error submitting the form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error: ", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
   return (
     <>
       <Head>
@@ -135,93 +157,6 @@ const Contact = () => {
                     <Typography variant="body1">9458434778</Typography>
                   </Box>
                 </Box>
-
-                {/* Uncomment and adjust the social media section if needed */}
-                {/* <Box>
-                  <Typography variant="body2" sx={{ marginBottom: 1 }}>
-                    Connect with us:
-                  </Typography>
-                  <Box sx={{ display: "flex", gap: 1 }}>
-                    <IconButton
-                      href="https://www.facebook.com/mediamanadvertise"
-                      target="_blank"
-                    >
-                      <Facebook
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                    <IconButton
-                      href="https://twitter.com/Pk94935427"
-                      target="_blank"
-                    >
-                      <Twitter
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                    <IconButton
-                      href="https://www.instagram.com/mediamanadvertising?igsh=MXdhbWQzZnMwYnQ5Yw=="
-                      target="_blank"
-                    >
-                      <Instagram
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                    <IconButton
-                      href="https://www.linkedin.com/in/pardeep-kumar-4279726a/"
-                      target="_blank"
-                    >
-                      <LinkedIn
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                    <IconButton
-                      href="https://www.youtube.com/@mediaman569"
-                      target="_blank"
-                    >
-                      <YouTube
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                    <IconButton
-                      href="https://api.whatsapp.com/send?phone=919729606097"
-                      target="_blank"
-                    >
-                      <WhatsApp
-                        sx={{
-                          color: "#fff",
-                          backgroundColor: "#1C2534",
-                          borderRadius: "5px",
-                          padding: "4px",
-                        }}
-                      />
-                    </IconButton>
-                  </Box>
-                </Box> */}
               </Box>
             </Grid>
 
@@ -233,8 +168,17 @@ const Contact = () => {
                 >
                   Contact us
                 </Typography>
-                <Box component="form" noValidate autoComplete="off">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                  {/* Replace YOUR_ACCESS_KEY_HERE with your Web3Forms Access Key */}
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="93050634-19bf-4b2c-82ee-e55ebea824b9"
+                  />
+
                   <TextField
+                    type="text"
+                    name="name"
                     fullWidth
                     label="Username"
                     variant="outlined"
@@ -249,6 +193,7 @@ const Contact = () => {
                     }}
                   />
                   <TextField
+                    name="email"
                     fullWidth
                     label="Email"
                     type="email"
@@ -266,6 +211,7 @@ const Contact = () => {
                   <TextField
                     fullWidth
                     label="Phone"
+                    name="number"
                     type="tel"
                     variant="outlined"
                     sx={{
@@ -280,6 +226,8 @@ const Contact = () => {
                   />
                   <TextField
                     fullWidth
+                    name="message"
+                    type="text"
                     label="Message"
                     multiline
                     rows={4}
@@ -311,7 +259,7 @@ const Contact = () => {
                   >
                     Send
                   </Button>
-                </Box>
+                </form>
               </Box>
             </Grid>
           </Grid>

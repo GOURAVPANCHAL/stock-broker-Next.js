@@ -13,15 +13,6 @@ import invest from "../assets/invest2.png";
 import Image from "next/image";
 
 function ApplicationForm() {
-  const [tabValue, setTabValue] = useState(0);
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [name, setName] = useState("");
-  const [emailId, setEmailId] = useState("");
-
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
   return (
     <>
       <Box>
@@ -36,19 +27,27 @@ function ApplicationForm() {
             <Box sx={{ mt: 2 }}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
-                  
-                    <Box>
-                      <Typography variant="h6" gutterBottom>
-                        New Application Details
-                      </Typography>
+                  <Box>
+                    <Typography variant="h6" gutterBottom>
+                      New Application Details
+                    </Typography>
+                    <form
+                      action="https://api.web3forms.com/submit"
+                      method="POST"
+                    >
+                      <input
+                        type="hidden"
+                        name="access_key"
+                        value="93050634-19bf-4b2c-82ee-e55ebea824b9"
+                      />
                       <TextField
                         fullWidth
                         label="Name"
                         placeholder="Enter your name"
                         variant="outlined"
                         margin="normal"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        name="name"
+                        type="text"
                       />
                       <TextField
                         fullWidth
@@ -56,8 +55,8 @@ function ApplicationForm() {
                         placeholder="Enter your 10-digit mobile number"
                         variant="outlined"
                         margin="normal"
-                        value={mobileNumber}
-                        onChange={(e) => setMobileNumber(e.target.value)}
+                        name="mobileNumber"
+                        type="tel"
                       />
                       <TextField
                         fullWidth
@@ -65,8 +64,8 @@ function ApplicationForm() {
                         placeholder="Enter your email Id"
                         variant="outlined"
                         margin="normal"
-                        value={emailId}
-                        onChange={(e) => setEmailId(e.target.value)}
+                        name="emailId"
+                        type="email"
                       />
                       <Button
                         fullWidth
@@ -77,11 +76,12 @@ function ApplicationForm() {
                           backgroundColor: "#1C2534",
                           "&:hover": { backgroundColor: "#9ad953" },
                         }}
-                        disabled={!mobileNumber || !emailId}
+                        type="submit"
                       >
                         Submit
                       </Button>
-                    </Box>
+                    </form>
+                  </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Box
@@ -93,7 +93,7 @@ function ApplicationForm() {
                     }}
                   >
                     <Image
-                      src={invest} // Replace with the path to your image
+                      src={invest}
                       alt="Illustration"
                       style={{
                         maxWidth: "100%",

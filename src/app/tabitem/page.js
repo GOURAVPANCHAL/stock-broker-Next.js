@@ -2,12 +2,14 @@
 import React from "react";
 import { Container, Grid, Box, Typography, Button, useMediaQuery } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import whyTrade from "../assets/why_trade.png";
 import whyTradebg from "../assets/why_trade_bg.png";
 import "../globals.css";
 
 export default function WhyTrade() {
   const isMobile = useMediaQuery('(max-width:600px)');
+  const router = useRouter();
 
   return (
     <Container maxWidth="xxl" sx={{ background: "#F5C06C" }}>
@@ -115,7 +117,14 @@ export default function WhyTrade() {
                   financial instruments, such as stocks, bonds, and currencies.
                 </Typography>
                 <Button
+                  onClick={() => router.push("/contact")}
                   variant="outlined"
+                  style={{
+                    color: "white",
+                    borderColor: "black",
+                    textTransform: "none",
+                    fontSize: "14px",
+                  }}
                   className="cmn-btn secondary-link fs-six-up gap-2 gap-lg-3 align-items-center mt-5 text-black"
                   endIcon={
                     <i className="ti ti-arrow-narrow-right fs-four"></i>
@@ -158,7 +167,14 @@ export default function WhyTrade() {
                     attracts professionals from around the world.
                   </Typography>
                   <Button
+                    onClick={() => router.push("/contact")}
                     variant="outlined"
+                    style={{
+                      color: "white",
+                      borderColor: "black",
+                      textTransform: "none",
+                      fontSize: "14px",
+                    }}
                     className="cmn-btn secondary-link fs-six-up gap-2 gap-lg-3 align-items-center mt-5"
                     endIcon={
                       <i className="ti ti-arrow-narrow-right fs-four"></i>

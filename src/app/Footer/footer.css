@@ -3,5 +3,13 @@
     list-style-type: none;
     text-align: start;
     color: white;
-    font-family: poppins
+    font-family: poppins;
+    line-height: 2;
+    
+    
+}
+
+.footerul li a{
+    color: rgb(154, 217, 83);
+    text-decoration: none;
 }
