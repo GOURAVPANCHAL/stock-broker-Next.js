@@ -9,7 +9,7 @@ import {
   Grid,
 } from "@mui/material";
 import "../globals.css";
-import invest from "../assets/invest2.png";
+// import invest from "../../../public/Images/invest2.png";
 import Image from "next/image";
 
 function ApplicationForm() {
@@ -93,8 +93,10 @@ function ApplicationForm() {
                     }}
                   >
                     <Image
-                      src={invest}
+                      src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726734734/invest2_qsejv4.png"
                       alt="Illustration"
+                      width={400}
+                      height={400}
                       style={{
                         maxWidth: "100%",
                         height: "100%",

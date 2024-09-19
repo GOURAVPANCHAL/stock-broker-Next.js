@@ -11,50 +11,65 @@ import {
 import { grey } from "@mui/material/colors";
 import Image from "next/image";
 import "../globals.css";
-import blog1 from "../assets/blog1.jpg";
-import blog2 from "../assets/blog2.jpg";
-import blog3 from "../assets/blog3.jpeg";
+// import blog1 from "../../../public/Images/blog1.jpg";
+// import blog2 from "../../../public/Images/blog2.jpg";
+// import blog3 from "../../../public/Images/blog3.jpeg";
 import Head from "next/head";
 
 const BlogPage = () => {
   const posts = [
     {
-      image: blog1,
+      image:
+        "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726728651/blog1_lescrj.jpg",
       title: "Understanding Stock Market Trends",
       summary:
         "A comprehensive guide to understanding the latest stock market trends and how to leverage them for investment.",
       link: "#",
     },
     {
-      image: blog2,
+      image:
+        "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726728650/blog2_y3pvrg.jpg",
       title: "Top 5 Investment Strategies for 2024",
       summary:
         "Discover the top investment strategies for 2024 to maximize your returns and minimize risks.",
       link: "#",
     },
     {
-      image: blog3,
+      image:
+        "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726728650/blog3_p0ivey.jpg",
       title: "How to Build a Diversified Portfolio",
       summary:
         "Learn the importance of diversification and how to build a portfolio that balances risk and reward.",
       link: "#",
-    }
+    },
   ];
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Blog - NXTGEN Broker</title>
-        <meta name="description" content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management." />
-        <meta name="keywords" content="blog, stock market trends, investment strategies, diversified portfolio, NXTGEN Broker" />
+        <meta
+          name="description"
+          content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management."
+        />
+        <meta
+          name="keywords"
+          content="blog, stock market trends, investment strategies, diversified portfolio, NXTGEN Broker"
+        />
         <meta name="author" content="NXTGEN Broker" />
         <meta property="og:title" content="Blog - NXTGEN Broker" />
-        <meta property="og:description" content="Stay updated with the latest insights, trends, and strategies in the world of investing with NXTGEN Broker's blog." />
+        <meta
+          property="og:description"
+          content="Stay updated with the latest insights, trends, and strategies in the world of investing with NXTGEN Broker's blog."
+        />
         <meta property="og:image" content="/path-to-image/blog-og.jpg" />
         <meta property="og:url" content="https://www.nxtgenbroker.com/blog" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog - NXTGEN Broker" />
-        <meta name="twitter:description" content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management." />
+        <meta
+          name="twitter:description"
+          content="Read the latest blog posts from NXTGEN Broker about stock market trends, investment strategies, and portfolio management."
+        />
         <meta name="twitter:image" content="/path-to-image/blog-twitter.jpg" />
       </Head>
       <Box className="tradeandinvestment">

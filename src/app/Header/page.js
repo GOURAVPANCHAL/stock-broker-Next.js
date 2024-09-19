@@ -13,7 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const pages = ["Home", "About", "Service" , "SIP" , "Blog", "Contact"];
+const pages = ["Home", "About", "Service", "SIP", "Blog", "Contact"];
+
 const ResponsiveAppBar = () => {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -39,15 +40,14 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", sm: "block", md: "block" },
                 fontWeight: 700,
                 textDecoration: "none",
+                fontSize: "24px",
               }}
-              fontSize="24px"
-              href="/"
             >
               <Link
                 style={{ textDecoration: "none", color: "rgb(154 217 83)" }}
                 href="/"
               >
-                NXTGEN <span style={{ color: "white" }}> broker</span>
+                NXTGEN <span style={{ color: "white" }}>broker</span>
               </Link>
             </Typography>
 
@@ -60,13 +60,13 @@ const ResponsiveAppBar = () => {
             >
               <IconButton
                 size="large"
-                aria-label="account of current user"
+                aria-label="menu"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="black"
+                color="inherit"
               >
-                <MenuIcon style={{ color: "white" }} />
+                <MenuIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -87,10 +87,18 @@ const ResponsiveAppBar = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem
+                    key={page}
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      router.push(
+                        page === "Home" ? "/" : `/${page.toLowerCase()}`
+                      );
+                    }}
+                  >
                     <Typography
-                      fontStyle={{ textTransform: "none" }}
                       textAlign="center"
+                      sx={{ textTransform: "none" }}
                     >
                       {page}
                     </Typography>
@@ -117,22 +125,34 @@ const ResponsiveAppBar = () => {
                       fontSize: "18px",
                       boxShadow: "none",
                       textTransform: "none",
+                      margin: "0 8px",
                     }}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
                   >
                     {page}
                   </Button>
                 </Link>
               ))}
-              <style jsx>{`
-                nav {
-                  padding: 1rem;
-                  background: #333;
-                }
-              `}</style>
             </Box>
-
+   {/* Responsive Open An Account Button */}
+   <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button
+                variant="outlined"
+                style={{
+                  color: "rgb(154 217 83)",
+                  borderColor: "rgb(154 217 83)",
+                  textTransform: "none",
+                  fontSize: "14px",
+                }}
+                onClick={() => router.push("/open_account")}
+              >
+                Open An Account
+              </Button>
+            </Box>
             {/* Open An Account Button */}
             <Box
               sx={{
@@ -153,26 +173,7 @@ const ResponsiveAppBar = () => {
               </Button>
             </Box>
 
-            {/* Responsive Open An Account Button */}
-            <Box
-              sx={{
-                display: { xs: "flex", md: "none" },
-                justifyContent: "flex-end",
-              }}
-            >
-              <Button
-                variant="outlined"
-                style={{
-                  color: "rgb(154 217 83)",
-                  borderColor: "rgb(154 217 83)",
-                  textTransform: "none",
-                  fontSize: "14px",
-                }}
-                onClick={() => router.push("/open_account")}
-              >
-                Open An Account
-              </Button>
-            </Box>
+         
           </Toolbar>
         </Container>
       </AppBar>

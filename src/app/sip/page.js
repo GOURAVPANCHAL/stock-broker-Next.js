@@ -12,11 +12,15 @@ import {
   Container,
 } from "@mui/material";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
+
 const SIP = () => {
   const [amount, setAmount] = useState(5000);
   const [duration, setDuration] = useState(5);
   const [rate, setRate] = useState(12);
   const [tabIndex, setTabIndex] = useState(0);
+
+  const router = useRouter(); // Initialize useRouter
 
   const handleTabChange = (event, newIndex) => {
     setTabIndex(newIndex);
@@ -62,7 +66,7 @@ const SIP = () => {
           <Tabs value={tabIndex} onChange={handleTabChange} centered>
             <Tab label="SIP Investment" />
             <Tab label="Lumpsum Amount" />
-            <Tab label="Advance SIP" />
+            <Tab label="Advanced SIP" />
           </Tabs>
 
           {tabIndex === 0 && (
@@ -136,17 +140,17 @@ const SIP = () => {
                   <Tooltip />
                 </PieChart>
                 <Box mt={4}>
-                <Button
-                variant="outlined"
-                style={{
-                  color: "rgb(154 217 83)",
-                  borderColor: "rgb(154 217 83)",
-                  textTransform: "none",
-                }}
-                onClick={() => router.push("/open_account")}
-              >
-                Invest Now
-              </Button>
+                  <Button
+                    variant="outlined"
+                    style={{
+                      color: "rgb(154 217 83)",
+                      borderColor: "rgb(154 217 83)",
+                      textTransform: "none",
+                    }}
+                    onClick={() => router.push("/open_account")}
+                  >
+                    Invest Now
+                  </Button>
                 </Box>
               </Grid>
             </Grid>

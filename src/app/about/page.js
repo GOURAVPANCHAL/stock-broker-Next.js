@@ -2,7 +2,7 @@
 import React from "react";
 import { Box, Grid, Typography, Button, Container } from "@mui/material";
 import "../globals.css";
-import onlineImage from '../assets/online-image.jpeg';
+// import onlineImage from '../../../public/Images/online-image.jpeg';
 import Image from "next/image";
 import Head from "next/head";
 import { useRouter } from 'next/navigation'; // Updated import
@@ -15,9 +15,22 @@ const About = () => {
       <Head>
         <title>About Us - NXTGEN Broker</title>
         <meta name="description" content="Learn about NXTGEN Broker, our story, what we do, and who we are. Explore our commitment to providing top-notch trading services." />
-        <meta name="keywords" content="about us, NXTGEN Broker, trading services, financial markets, stock trading" />
+        <meta name="keywords" content="about us, NXTGEN Broker, trading services, financial markets, stock trading, investment, IPOs, commodities" />
         <meta name="author" content="NXTGEN Broker" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="About Us - NXTGEN Broker" />
+        <meta property="og:description" content="Discover NXTGEN Broker, our story, and our commitment to providing the best trading services." />
+        <meta property="og:image" content="/online-image.jpeg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.nxtgenbroker.com/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us - NXTGEN Broker" />
+        <meta name="twitter:description" content="Learn about NXTGEN Broker's mission and vision in the financial markets." />
+        <meta name="twitter:image" content="/online-image.jpeg" />
+        <link rel="canonical" href="https://www.nxtgenbroker.com/about" />
       </Head>
+
       <Box className="tradeandinvestment">
         <Container>
           <Typography variant="h2">
@@ -48,8 +61,10 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <Box sx={{ position: "relative", textAlign: "center" }}>
               <Image
-                src={onlineImage}
-                alt="image"
+                src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729320/online-image_oupgnu.jpg"
+                alt="Our team"
+                width={350} // Added width
+                height={400} // Added height
                 style={{
                   width: "100%",
                   maxWidth: 350,

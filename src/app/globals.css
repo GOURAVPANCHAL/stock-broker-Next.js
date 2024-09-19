@@ -1,12 +1,13 @@
 * {
-  font-family: poppins;
+  font-family: 'Poppins', sans-serif;
 }
+
 :root {
   --main-bg-color: #9ad953;
   --tradeHeading-color: #9ad953;
 }
 
-/* Universal lasses ---  */
+/* Universal classes */
 .tradeHeading-color {
   color: var(--tradeHeading-color);
 }
@@ -15,9 +16,7 @@
   font-size: 16px;
 }
 
-/* Universal lasses ---  */
-
-/* home page */
+/* Home page */
 .homebackground {
   background-image: url(./assets/backgroundForTopSection.webp);
   background-size: cover;
@@ -37,125 +36,50 @@
   margin-top: 2rem;
   padding-top: 10rem;
 }
-/* home page end */
 
 /* Testimonial */
 .testimonialSection {
   background: #9ad953;
-  padding: 2rem 2rem;
-  /* color: white; */
+  padding: 2rem;
 }
 .testimonial {
   padding: 1rem;
 }
-/* Testimonial end */
 
 /* Trade and development */
-
 .tradeandinvestment {
-  padding: 2rem 2rem;
-  background-color: #1c2534ed;
+  padding: 2rem;
+  background-color: #1c2534;
   color: white;
 }
 
 .paragraph {
   color: gray;
-  font-size: 16px;
-  letter-spacing: 1px;
-  line-height: 25px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-
-.tabitemsimage{
-  width:'100%';
-  height: 100%;
-}
-.tradeour{
-  padding:5rem 5rem;
-}
-/* Trade and development end */
-.sipgraph {
-  margin-bottom: 3rem;
-  height: 450px;
+/* Portfolio */
+.tabitemsimage {
+  width: 20px;
 }
 
-/* faq page */
-.faqpage{
-  background-color: #F5C06A;
-  padding: 3rem 3rem;
-}
-/* faq page end */
-.css-9z1bus-MuiButtonBase-root-MuiTab-root.Mui-selected{
-  color: #1C2534;
-}
-.faqbox{
-  padding: 1rem;
+.tablets {
+  width: 20px;
 }
 
-@media (max-width: 768px) {
-  .faqheading{
-    padding-top: 1rem;
-    font-size: 30px;
-  }
-  .faqpage{
-    padding: 0rem 0rem !important;
-  }
-  .sipgraph {
-    margin-bottom: 3rem;
-  }
-  .tradeour{
-    padding:2rem 0rem;
-    margin-bottom: 1rem;
+.tabitemspage {
+  width: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+  .bigcardheight {
+    height: 300px;
   }
 }
 
-.contact-paper {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.contact-paper h4 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.contact-paper p {
-  margin-bottom: 1rem;
-  color: #666;
-  font-size: 1rem;
-}
-
-.contact-paper a {
-  color: #1c2534ed;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-paper a:hover {
-  color: #1c2534ed;
-}
-
-.contact-paper .social-icons {
-  margin-top: 1.5rem;
-}
-
-.contact-paper .social-icons .MuiIconButton-root {
-  color: #1c2534ed;
-  margin-right: 0.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.contact-paper .social-icons .MuiIconButton-root:hover {
-  color: #1c2534ed;
-  transform: scale(1.1);
-}
-
-a{
-  text-decoration: none !important;
+@media only screen and (min-width: 576px) {
+  .smallcardheight {
+    height: 200px;
+  }
 }

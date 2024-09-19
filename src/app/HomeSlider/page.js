@@ -6,13 +6,14 @@ import { Box, Typography, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
 import Image from "next/image"; // Correctly import Image from next/image
-import "./page.css";
 import Head from "next/head";
-import homeImage from "../assets/profitmax-app.png";
-import company1 from "../assets/nse.png";
-import company2 from "../assets/bse.jpg";
-import company3 from "../assets/nsx.png";
-import company4 from "../assets/mcx.jpg";
+import homeImage from "../../../public/Images/profitmax-app.png";
+// import company1 from "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729783/nse_ewl8ov.png";
+// import company2 from "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729814/bse_q14vk6.jpg";
+// import company3 from "../../../public/Images/nsx.png";
+// import company4 from "../../../public/Images/mcx.jpg";
+import "./page.css";
+
 const Home = () => {
   const router = useRouter();
 
@@ -52,10 +53,11 @@ const Home = () => {
         />
         <meta name="twitter:image" content="/path-to-image/twitter-image.jpg" />
       </Head>
+
       <Box sx={{ backgroundColor: "#1C2534" }}>
         <Container id="Home">
-          <Grid id="home_Section" container>
-            <Grid id="homeContent" item xs={12} md={6}>
+          <Grid container>
+            <Grid item xs={12} md={6}>
               <Box sx={{ marginTop: { xs: "1rem", sm: "3rem", md: "5rem" } }}>
                 <Typography
                   sx={{
@@ -100,11 +102,11 @@ const Home = () => {
 
             <Grid item md={1}></Grid>
 
-            <Grid id="homeImage" item xs={12} md={5}>
+            <Grid item xs={12} md={5}>
               <Box mt={5}>
                 <Image
                   alt="home image"
-                  src={homeImage}
+                  src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729652/profitmax-app_nqrknv.png"
                   width={800}
                   height={600}
                   layout="responsive"
@@ -114,8 +116,7 @@ const Home = () => {
           </Grid>
         </Container>
 
-        <Grid
-          container
+        <Box
           sx={{
             padding: { xs: "20px 10px", md: "20px" },
             marginTop: { xs: "3rem", sm: "3rem", md: "5rem" },
@@ -131,22 +132,23 @@ const Home = () => {
                 justifyContent: "space-between",
               }}
             >
-              {[company1, company2, company3, company4].map(
+              {["https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729783/nse_ewl8ov.png", "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729814/bse_q14vk6.jpg", "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729925/nsx_udtfqd.png", "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729959/mcx_wtevdo.jpg"].map(
                 (company, index) => (
-                  <Grid item xs={6} md={1} key={index}>
+                  <Grid item xs={6} md={3} key={index}>
                     <Image
+                      className="companyImage"
                       alt={`Company ${index + 1} image`}
                       src={company}
-                      width={200}
-                      height={100}
                       layout="responsive"
+                      width={250}
+                      height={150}
                     />
                   </Grid>
                 )
               )}
             </Grid>
           </Container>
-        </Grid>
+        </Box>
       </Box>
 
       <Box
@@ -162,7 +164,7 @@ const Home = () => {
               <Box>
                 <Image
                   alt="home2 image"
-                  src="/home2.webp" // Ensure image path is correct
+                  src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726730150/home2_jumwb3.webp"
                   width={800}
                   height={600}
                   layout="responsive"
@@ -179,7 +181,7 @@ const Home = () => {
                   marginTop: { xs: "2rem" },
                 }}
               >
-                About NXTGEN broker
+                About NXTGEN Broker
               </Typography>
               <Typography
                 sx={{
@@ -188,7 +190,7 @@ const Home = () => {
                   mt: 3,
                 }}
               >
-                <b>NXTGEN broker</b> (formerly known as XYZ Securities Pvt.
+                <b>NXTGEN Broker</b> (formerly known as XYZ Securities Pvt.
                 Ltd.) began its journey in 2012. As a premier stock broking
                 house in India, NXTGEN Broker offers a comprehensive range of
                 investment opportunities, including Equities, Derivatives,
@@ -225,7 +227,7 @@ const Home = () => {
             width={800}
             height={600}
             alt="conferencing"
-            src="/responsive.webp"
+            src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726734673/responsive_rl2ujo.webp"
             layout="responsive"
           />
         </Box>
@@ -238,7 +240,7 @@ const Home = () => {
               fontWeight: 600,
             }}
           >
-            Powerful virtual conferencing platform solution
+            Powerful Virtual Conferencing Platform Solution
           </Typography>
           <Typography
             sx={{

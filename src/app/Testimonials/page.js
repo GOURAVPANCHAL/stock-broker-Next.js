@@ -19,46 +19,53 @@ import {
 // Data for testimonials
 const testimonials = [
   {
-    name: "Harsh Vardhan",
+    name: "Gourav Panchal",
+    review: `NXTGEN Broker has transformed my investment strategy. Their tools and insights make trading seamless and intuitive. I'm consistently seeing better returns!`,
     image: "https://labmantra.com/static/media/p1.4684c8065083eb48e739.jpg",
     testimonial:
-      "The customer service was exceptional, and the products exceeded my expectations. I highly recommend this company to anyone looking for quality.",
+      "Regular investor using NXTGEN Broker for portfolio management.",
   },
   {
-    name: "Gaourav",
+    name: "Harsh Vardhan",
+    review: `I've never felt more confident with my trades. NXTGEN Broker offers real-time data and expert advice that have helped me make informed decisions every step of the way.`,
     image: "https://labmantra.com/static/media/p2.e79d43cdba0e4009f862.jpeg",
     testimonial:
-      "I have been using these products for months now, and I must say they are top-notch. The durability and design are just perfect!",
-  },
-  {
-    name: "Ashish",
-    image: "https://labmantra.com/static/media/p1.4684c8065083eb48e739.jpg",
-    testimonial:
-      "Fantastic quality and creativity in the products. My kids absolutely love them, and they are very safe to use.",
+      "Active trader relying on NXTGEN Broker for data-driven strategies.",
   },
   {
     name: "Naman",
-    image: "https://labmantra.com/static/media/p2.e79d43cdba0e4009f862.jpeg",
+    image:
+      "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726737035/client4_zgrooe.png",
+    review:
+      "What sets NXTGEN Broker apart is their personalized support and cutting-edge technology. It’s helped me manage my investments more efficiently than ever.",
     testimonial:
-      "The delivery was fast, and the packaging was excellent. The products themselves are wonderful, and I will definitely be a returning customer.",
+      "Long-time trader using NXTGEN Broker’s advanced tools for management.",
   },
   {
     name: "Karan Sehmbi",
-    image: "https://labmantra.com/static/media/p1.4684c8065083eb48e739.jpg",
+    image:
+      "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726737035/client3_l944me.png",
+    review: `The level of transparency and detailed market insights provided by NXTGEN Broker has been unmatched. It’s the perfect tool for both seasoned and new traders.`,
     testimonial:
-      "These products have made a significant difference in my daily routine. The quality is outstanding, and the customer support is very responsive.",
+      "Professional trader who trusts NXTGEN Broker’s transparency and insights.",
   },
   {
     name: "Deepak Kumar",
-    image: "https://labmantra.com/static/media/p2.e79d43cdba0e4009f862.jpeg",
+    image:
+      "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726737035/client2_kvopcn.png",
+    review:
+      "I’ve tried several platforms, but NXTGEN Broker truly stands out for its ease of use, comprehensive features, and reliable service. Highly recommended!",
     testimonial:
-      "I bought several items, and all of them were excellent. The attention to detail and the craftsmanship are evident in each product.",
+      "Experienced investor enjoying NXTGEN Broker’s streamlined platform.",
   },
   {
     name: "Anish Solanki",
-    image: "https://labmantra.com/static/media/p1.4684c8065083eb48e739.jpg",
+    image:
+      "https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726737035/client1_izzxae.png",
+    review:
+      "NXTGEN Broker has made trading so much simpler. The intuitive interface and expert insights have significantly boosted my confidence and success in the market.",
     testimonial:
-      "Amazing products! They are very well made and have quickly become a favorite in our household. Highly recommended!",
+      "Enthusiastic trader benefiting from NXTGEN Broker’s simplified trading platform.",
   },
 ];
 
@@ -88,6 +95,7 @@ const Testimonial = () => {
                 slidesPerView: 2,
               },
             }}
+            modules={[Pagination, Navigation, Autoplay]} // Correctly import Swiper modules
             className="mySwiper"
           >
             {testimonials.map((testimonial, index) => (
@@ -127,6 +135,25 @@ const Testimonial = () => {
                     >
                       {testimonial.testimonial}
                     </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontStyle: "italic",
+                        marginBottom: "20px",
+                        position: "relative",
+                        paddingLeft: "30px",
+                        "&::before": {
+                          content: '"“"',
+                          fontSize: "3rem",
+                          color: "#003873",
+                          position: "absolute",
+                          left: 0,
+                          top: "-10px",
+                        },
+                      }}
+                    >
+                      Review : {testimonial.review}
+                    </Typography>
                     <Grid container alignItems="center">
                       <Avatar
                         src={testimonial.image}
@@ -139,12 +166,6 @@ const Testimonial = () => {
                           sx={{ color: "#003873", marginBottom: "0" }}
                         >
                           {testimonial.name}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ color: "#6c757d", marginTop: "5px" }}
-                        >
-                          Customer
                         </Typography>
                       </Box>
                     </Grid>

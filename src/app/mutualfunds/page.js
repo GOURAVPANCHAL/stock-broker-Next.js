@@ -7,11 +7,11 @@ function MutualFundsPage() {
     <div>
       <Box className="tradeandinvestment" mb={5}>
         <Container>
-          <Typography variant="h2">
-            <b>Mutual Funds & SIP</b>
+          <Typography variant="h2" component="h1" gutterBottom>
+            Mutual Funds & SIP
           </Typography>
-          <Typography variant="h5">
-            NXTGEN broker and the right to development
+          <Typography variant="h5" component="h2" gutterBottom>
+            NXTGEN Broker and the Right to Development
           </Typography>
         </Container>
       </Box>
@@ -20,20 +20,20 @@ function MutualFundsPage() {
           <Typography variant="h6" style={{ color: "#9ad953" }}>
             Mutual funds and Systematic Investment Plans (SIPs) are popular
             investment options for individuals looking to grow their wealth over
-            time. Here&rsquo;s a breakdown of each:
+            time. Here’s a breakdown of each:
           </Typography>
-          <Typography variant="h1" mt={5}>
-            <b>Mutual Funds</b>
+
+          <Typography variant="h4" mt={5}>
+            Mutual Funds
           </Typography>
           <Typography className="paragraph">
-            Mutual Funds are investment vehicles that pool money from multiple
+            Mutual funds are investment vehicles that pool money from multiple
             investors to invest in a diversified portfolio of assets such as
             stocks, bonds, and other securities.
           </Typography>
-        </Box>
-        <Box>
+
           <Typography variant="h5" mt={5}>
-            <b>Key Features:</b>
+            Key Features:
           </Typography>
 
           <Typography variant="h6" className="tradeHeading-color">
@@ -50,7 +50,6 @@ function MutualFundsPage() {
               investment decisions on behalf of the investors.
             </span>
           </Typography>
-
           <Typography variant="h6" className="tradeHeading-color">
             Types of Mutual Funds:
             <span className="headingcolors">
@@ -63,8 +62,8 @@ function MutualFundsPage() {
             Liquidity:
             <span className="headingcolors">
               Mutual fund shares can typically be bought or sold on any business
-              day at the fund&apos;s Net Asset Value (NAV), making them
-              relatively liquid investments.
+              day at the fund’s Net Asset Value (NAV), making them relatively
+              liquid investments.
             </span>
           </Typography>
           <Typography variant="h6" className="tradeHeading-color">
@@ -74,8 +73,9 @@ function MutualFundsPage() {
               as entry or exit loads.
             </span>
           </Typography>
+
           <Typography variant="h5" mt={5}>
-            <b>How to Invest:</b>
+            How to Invest:
           </Typography>
           <Typography variant="h6" className="tradeHeading-color">
             Direct Investment:
@@ -93,8 +93,8 @@ function MutualFundsPage() {
           </Typography>
 
           <Box>
-            <Typography variant="h1" mt={5}>
-              <b>Systematic Investment Plan (SIP)</b>
+            <Typography variant="h4" mt={5}>
+              Systematic Investment Plan (SIP)
             </Typography>
             <Typography className="paragraph">
               A Systematic Investment Plan (SIP) is a method of investing a
@@ -102,23 +102,25 @@ function MutualFundsPage() {
               mutual fund.
             </Typography>
             <Typography variant="h5" mt={5}>
-              <b>Key Features:</b>
+              Key Features:
             </Typography>
           </Box>
+
           <Typography variant="h6" className="tradeHeading-color">
             Discipline:
             <span className="headingcolors">
               SIPs encourage regular investing, which can help in building
               wealth over time through disciplined savings.
             </span>
+          </Typography>
+          <Typography variant="h6" className="tradeHeading-color">
+            Rupee Cost Averaging:
             <span className="headingcolors">
-              Rupee Cost Averaging: By investing a fixed amount regularly, you
-              buy more units when prices are low and fewer units when prices are
-              high, averaging out the cost of investment.
+              By investing a fixed amount regularly, you buy more units when
+              prices are low and fewer units when prices are high, averaging
+              out the cost of investment.
             </span>
           </Typography>
-
-          <Typography variant="h5" mt={5}></Typography>
           <Typography variant="h6" className="tradeHeading-color">
             Flexibility:
             <span className="headingcolors">
@@ -134,7 +136,6 @@ function MutualFundsPage() {
               account, making it a convenient way to invest.
             </span>
           </Typography>
-
           <Typography variant="h6" className="tradeHeading-color">
             Compounding:
             <span className="headingcolors">
@@ -144,25 +145,23 @@ function MutualFundsPage() {
           </Typography>
 
           <Typography variant="h5" mt={5}>
-            <b>Advantages:</b>
+            Advantages:
           </Typography>
-
           <Typography variant="h6" className="tradeHeading-color">
             Affordability:
             <span className="headingcolors">
-              You don&rsquo;t need a large lump sum to start investing, as SIPs
-              allow you to invest small amounts regularly.
+              You don’t need a large lump sum to start investing, as SIPs allow
+              you to invest small amounts regularly.
             </span>
           </Typography>
           <Typography variant="h6" className="tradeHeading-color">
             Reduced Impact of Market Volatility:
             <span className="headingcolors">
-              Regular investments help mitigate the effects of market
-              volatility.
+              Regular investments help mitigate the effects of market volatility.
             </span>
           </Typography>
           <Typography variant="h5" mt={5}>
-            <b>How to Start an SIP:</b>
+            How to Start an SIP:
           </Typography>
           <Typography variant="h6" className="tradeHeading-color">
             Choose a Mutual Fund:
@@ -174,25 +173,26 @@ function MutualFundsPage() {
           <Typography variant="h6" className="tradeHeading-color">
             Set Up SIP:
             <span className="headingcolors">
-              You can set up an SIP through the mutual fund company&rsquo;s
-              website, an online investment platform, or with the help of a
-              financial advisor.
+              You can set up an SIP through the mutual fund company’s website,
+              an online investment platform, or with the help of a financial
+              advisor.
             </span>
           </Typography>
           <Typography variant="h6" className="tradeHeading-color">
             Regular Payments:
             <span className="headingcolors">
-              Ensure that you have sufficient funds in your bank account to
-              cover the SIP amount on the scheduled dates.
+              Ensure that you have sufficient funds in your bank account to cover
+              the SIP amount on the scheduled dates.
             </span>
+          </Typography>
+          <Typography variant="h6" className="tradeHeading-color">
             <span className="headingcolors">
               Both mutual funds and SIPs are suitable for different types of
               investors, depending on their investment goals, risk tolerance,
-              and preferences. If you&rsquo;re considering investing in mutual
-              funds or starting an SIP, it&rsquo;s a good idea to research
-              various options and possibly consult with a financial advisor to
-              ensure that your choices align with your overall financial
-              strategy.
+              and preferences. If you’re considering investing in mutual funds
+              or starting an SIP, it’s a good idea to research various options
+              and possibly consult with a financial advisor to ensure that your
+              choices align with your overall financial strategy.
             </span>
           </Typography>
         </Box>

@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
-import faqimage from "../assets/faq.jpg"; // Update with your image path
+// import faqimage from "../../../public/Images/faq.jpg";
 import '../globals.css'
+
 const FAQSection = () => {
   const [expanded, setExpanded] = useState(false);
 
@@ -21,20 +22,25 @@ const FAQSection = () => {
   };
 
   return (
-    <Box className="faqpage">
-      <Typography className="faqheading" variant="h2" align="center" gutterBottom>
-        <b>
-          <span style={{ color: "white" }}> Frequently Asked</span> Questions
-        </b>
+    <Box
+      sx={{
+        backgroundColor: "#1c2534e0",
+        color: "white",
+        py: 8,
+      }}
+    >
+      <Typography variant="h2" align="center" gutterBottom>
+        <b>Frequently Asked Questions</b>
       </Typography>
-      <Container sx={{ py: 8 }}>
+      <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>
             <Image
-              src={faqimage}
+              src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726729507/faq_m2f1co.jpg"
               alt="FAQ Image"
               layout="responsive"
-              height={"auto"}
+              width={600}
+              height={400}
               style={{
                 borderRadius: "8px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -43,38 +49,34 @@ const FAQSection = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Box
-            className="faqbox"
               sx={{
                 bgcolor: "#f4f4f9",
                 borderRadius: 2,
                 boxShadow: 3,
-                
+                p: 2,
               }}
             >
               {[
                 {
                   panel: "panel1",
-                  question: "What is the purpose of this pen?",
+                  question: "What is a stock broker and why do I need one?",
                   answer:
-                    "This pen is designed to provide web developers with boilerplate code for a FAQ Accordion.",
+                    "A stock broker facilitates the buying and selling of stocks and other securities on behalf of investors. You need a stock broker to access the stock market, execute trades, and manage your investment portfolio with expert guidance.",
                 },
                 {
                   panel: "panel2",
-                  question: "What is an accordion?",
-                  answer:
-                    "An accordion is a vertically stacked list of headers that users can click on to reveal more information.",
+                  question: "How do I open a trading account with NXTGEN Broker?",
+                  answer:`Opening a trading account is simple. You can visit our "Open an Account" page, fill out the required details, submit the necessary documents (ID proof, address proof, bank details), and we’ll guide you through the verification process.`,
                 },
                 {
                   panel: "panel3",
-                  question: "How can I customize the accordion?",
-                  answer:
-                    "You can customize the accordion by modifying the CSS styles and changing the HTML structure as per your needs.",
+                  question: "What are the charges for trading with NXTGEN Broker?",
+                  answer:`We charge a competitive brokerage fee on each trade. For detailed information on our fees, please refer to the "Pricing" section on our website, or contact our customer service for personalized support.`,
                 },
                 {
                   panel: "panel4",
-                  question: "Is this accordion responsive?",
-                  answer:
-                    "Yes, this accordion is designed to be responsive and will adjust its layout based on the screen size.",
+                  question: "Is my investment safe with NXTGEN Broker?",
+                  answer:"Yes, your investments are completely secure with us. NXTGEN Broker operates under the guidelines set by regulatory authorities, ensuring that your funds and investments are protected at all times.",
                 },
               ].map(({ panel, question, answer }) => (
                 <Accordion
@@ -101,8 +103,8 @@ const FAQSection = () => {
                       color: "#ffffff",
                       borderRadius: 1,
                       "&:hover": {
-                        bgcolor: "rgb(154 217 83)",
-                        color: "#1C2534",
+                        bgcolor: "#154f8c", // Adjusted hover color
+                        color: "#ffffff",
                       },
                     }}
                   >

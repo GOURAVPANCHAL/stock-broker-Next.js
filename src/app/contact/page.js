@@ -7,7 +7,6 @@ import {
   Link,
   TextField,
   Button,
-  IconButton,
   Container,
 } from "@mui/material";
 import {
@@ -27,7 +26,6 @@ import Head from "next/head";
 const Contact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const formData = new FormData(event.target);
 
     try {
@@ -46,6 +44,7 @@ const Contact = () => {
       alert("An error occurred. Please try again.");
     }
   };
+
   return (
     <>
       <Head>
@@ -97,9 +96,10 @@ const Contact = () => {
           justifyContent: "center",
           alignItems: "center",
           minHeight: "100vh",
+          py: 4,
         }}
       >
-        <Box sx={{ width: "100%", maxWidth: 1200 }}>
+        <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
               <Box sx={{ backgroundColor: "white", padding: 4, boxShadow: 3 }}>
@@ -114,7 +114,6 @@ const Contact = () => {
                   works, please complete the form and we&apos;ll aim to get back
                   to you within 24 hours.
                 </Typography>
-
                 <Box sx={{ marginBottom: 2 }}>
                   <Box
                     sx={{
@@ -140,7 +139,7 @@ const Contact = () => {
                     <Typography variant="body1">
                       <Link
                         href="mailto:mdnrabhi00@gmail.com"
-                        sx={{ color: "black" }}
+                        sx={{ color: "black", textDecoration: "none" }}
                       >
                         mdnrabhi00@gmail.com
                       </Link>
@@ -168,14 +167,7 @@ const Contact = () => {
                 >
                   Contact us
                 </Typography>
-                <form action="https://api.web3forms.com/submit" method="POST">
-                  {/* Replace YOUR_ACCESS_KEY_HERE with your Web3Forms Access Key */}
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value="93050634-19bf-4b2c-82ee-e55ebea824b9"
-                  />
-
+                <form onSubmit={handleSubmit}>
                   <TextField
                     type="text"
                     name="name"
@@ -263,7 +255,7 @@ const Contact = () => {
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
     </>
   );

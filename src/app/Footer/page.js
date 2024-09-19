@@ -1,18 +1,14 @@
 "use client";
 import React from "react";
-import Container from "@mui/material/Container";
-import {
-  Box,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Container, Grid, Box, Typography } from "@mui/material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Image from "next/image";
 import Link from "next/link"; // Correct import for Link
 import { useRouter } from "next/navigation";
-import './footer.css'
+import './footer.css';
+
 const Footer = () => {
   const router = useRouter();
 
@@ -40,12 +36,9 @@ const Footer = () => {
             md={3}
           >
             <Typography fontSize="28px" fontWeight="600">
-              <Image
-                alt="vector"
-                src="/Vector.webp"
-                width={100}
-                height={100}
-              /> EverntUp.
+            <Typography color="rgb(154, 217, 83)" fontSize="20px" fontWeight="500">
+              NXTGEN <span style={{ color: 'white' }}>broker</span>
+            </Typography>
             </Typography>
             <Typography mt={1} mb={4} fontSize="16px" color="#9A9A9A">
               Made around the world.
@@ -63,11 +56,11 @@ const Footer = () => {
               Company
             </Typography>
             <ul className="footerul">
-              <li key="Home"><Link href="/">Home</Link></li>
-              <li key="about"><Link href="/about">About</Link></li>
-              <li key="Services"><Link href="/service">Services</Link></li>
-              <li key="SIP"><Link href="/sip">SIP</Link></li>
-              <li key="blog"><Link href="/blog">Blog</Link></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/service">Services</Link></li>
+              <li><Link href="/sip">SIP</Link></li>
+              <li><Link href="/blog">Blog</Link></li>
             </ul>
           </Grid>
           <Grid item xs={6} md={3}>
@@ -81,9 +74,9 @@ const Footer = () => {
               Services
             </Typography>
             <ul className="footerul">
-              <li key="support"><Link href="/trade"> Trade & Invest</Link></li>
-              <li key="policy"><Link href="/mutualfunds"> Mutual Funds & SIP</Link></li>
-              <li key="talk"><Link href="/insurance"> Insurance</Link></li>
+              <li><Link href="/trade">Trade & Invest</Link></li>
+              <li><Link href="/mutualfunds">Mutual Funds & SIP</Link></li>
+              <li><Link href="/insurance">Insurance</Link></li>
             </ul>
           </Grid>
           <Grid item md={3} xs={6}>
@@ -102,7 +95,7 @@ const Footer = () => {
         <Grid container sx={{ alignItems: "center" }}>
           <Grid item md={11} xs={12}>
             <Typography fontSize="16px" color="white">
-              © Copyright 2024, <span style={{ color: "rgb(154, 217, 83)" }}>NXTGEN BROKER</span>. Designed by <span style={{ cursor: 'pointer', color: 'rgb(154, 217, 83)' }} onClick={() => router.push("https://www.digiindiasolutions.com/")}>DIGI India Solutions</span>
+              © Copyright 2024, <span style={{ color: "rgb(154, 217, 83)" }}>NXTGEN BROKER</span>. Designed by <a href="https://www.digiindiasolutions.com/" target="_blank" style={{ cursor: 'pointer', color: 'rgb(154, 217, 83)' }}>DIGI India Solutions</a>
             </Typography>
           </Grid>
           <Grid item xs={12} md={1}>
@@ -111,15 +104,15 @@ const Footer = () => {
               justifyContent="space-between"
               alignItems="center"
             >
-              <Typography>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <TwitterIcon sx={{ color: "white" }} />
-              </Typography>
-              <Typography>
+              </Link>
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <FacebookIcon sx={{ color: "white" }} />
-              </Typography>
-              <Typography>
+              </Link>
+              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <LinkedInIcon sx={{ color: "white" }} />
-              </Typography>
+              </Link>
             </Box>
           </Grid>
         </Grid>

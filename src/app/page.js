@@ -11,7 +11,7 @@ import SIPGraph from "./sipgraph/page";
 import TabItem from "./tabitem/page";
 import TradeOnOur from "./tradeonour/page";
 
-function page() {
+const Page = () => {
   return (
     <>
       <HomeSlider />
@@ -24,6 +24,6 @@ function page() {
       <Faq />
     </>
   );
-}
+};
 
-export default page;
+export default Page;

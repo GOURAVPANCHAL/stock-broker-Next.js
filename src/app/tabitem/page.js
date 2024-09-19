@@ -1,18 +1,25 @@
 "use client";
 import React from "react";
-import { Container, Grid, Box, Typography, Button, useMediaQuery } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Box,
+  Typography,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import whyTrade from "../assets/why_trade.png";
-import whyTradebg from "../assets/why_trade_bg.png";
+// import whyTrade from "../../../public/Images/why_trade.png";
+// import whyTradebg from "../../../public/Images/why_trade_bg.png";
 import "../globals.css";
 
 export default function WhyTrade() {
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery("(max-width:600px)");
   const router = useRouter();
 
   return (
-    <Container maxWidth="xxl" sx={{ background: "#F5C06C" }}>
+    <Container maxWidth="xxl" sx={{ background: "#1c2534e0", color: "white" }}>
       <Grid container spacing={3} justifyContent="center">
         {/* Image Section */}
         <Grid
@@ -43,53 +50,35 @@ export default function WhyTrade() {
             sx={{ pl: { sm: 5, lg: 0 }, pb: { xs: 3, lg: 0 } }} // Add padding on small screens
           >
             <Image
-              src={whyTrade}
+              src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726730427/why_trade_tgec9o.png"
               alt="Trade Genius Image"
               width={isMobile ? 300 : 500} // Adjust width for mobile devices
               height={isMobile ? 300 : 500} // Adjust height for mobile devices
               layout="intrinsic"
             />
-            <Image
+            {/* <Image
               className="tabitemsimage"
-              src={whyTradebg}
+              src="https://res.cloudinary.com/dnv1sgfjx/image/upload/v1726730428/why_trade_bg_edhqjq.png"
               alt="Background Image"
               layout="intrinsic"
+              height={600}
+              width={700}
               style={{
                 position: "absolute",
                 zIndex: -1,
-                right: isMobile ? "10px" : 0, // Adjust right position for mobile devices
+                left: isMobile ? "10px" : 100, // Adjust right position for mobile devices
                 bottom: 0,
                 top: 0,
                 paddingTop: isMobile ? "10px" : "15px", // Adjust paddingTop for mobile devices
                 display: isMobile ? "none" : "flex", // Hide the image on mobile devices
                 paddingRight: isMobile ? 0 : { md: "5px", xxl: 0 },
               }}
-            />
+            /> */}
           </Box>
         </Grid>
 
         {/* Content Section */}
-        <Grid
-          item
-          xs={12}
-          lg={6}
-          xxl={7}
-          sx={{
-            cursor: "pointer",
-            "&:hover .title": {
-              color: "#F5A623",
-            },
-            "&:hover .description": {
-              opacity: 0.8,
-            },
-            "&:hover .cmn-btn": {
-              transform: "translateX(5px)",
-              transition: "transform 0.3s ease-in-out",
-            },
-            textAlign: { xs: "center", lg: "left" }, // Center text on small screens
-            px: { xs: 3, md: 5, lg: 3 }, // Adjust padding for different screen sizes
-          }}
-        >
+        <Grid item xs={12} lg={6} xxl={7}>
           <Grid
             container
             spacing={3}
@@ -113,8 +102,8 @@ export default function WhyTrade() {
                   <b>Trade Genius</b>
                 </Typography>
                 <Typography className="description">
-                  Trading is the art and science of buying and selling
-                  financial instruments, such as stocks, bonds, and currencies.
+                  Trading is the art and science of buying and selling financial
+                  instruments, such as stocks, bonds, and currencies.
                 </Typography>
                 <Button
                   onClick={() => router.push("/contact")}
@@ -126,9 +115,7 @@ export default function WhyTrade() {
                     fontSize: "14px",
                   }}
                   className="cmn-btn secondary-link fs-six-up gap-2 gap-lg-3 align-items-center mt-5 text-black"
-                  endIcon={
-                    <i className="ti ti-arrow-narrow-right fs-four"></i>
-                  }
+                  endIcon={<i className="ti ti-arrow-narrow-right fs-four"></i>}
                   sx={{ mt: { xs: 3, lg: 5 } }} // Adjust margin-top for different screen sizes
                 >
                   Learn more
@@ -162,8 +149,8 @@ export default function WhyTrade() {
                   <Typography className="description">
                     Trading is the art and science of buying and selling
                     financial instruments, such as stocks, bonds, currencies,
-                    commodities, and cryptocurrencies, with the aim of making
-                    a profit. It&apos;s a dynamic and multifaceted profession that
+                    commodities, and cryptocurrencies, with the aim of making a
+                    profit. It&apos;s a dynamic and multifaceted profession that
                     attracts professionals from around the world.
                   </Typography>
                   <Button
