@@ -72,6 +72,13 @@
   width: 20px;
 }
 
+.tradingview-widget-container{
+  height: 60vh !important;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 @media only screen and (min-width: 992px) {
   .bigcardheight {
     height: 300px;

@@ -32,15 +32,8 @@ function TradingViewWidget() {
 
   return (
     <Container className="sipgraph">
-      <div
-        className="tradingview-widget-container"
-        ref={container}
-        sx={{width:'100%', height:'1000px'}}
-      >
-        <div
-          className="tradingview-widget-container__widget"
-          sx={{width:'100%', height:'1000px'}}
-        ></div>
+      <div className="tradingview-widget-container" ref={container}>
+        <div className="tradingview-widget-container__widget"></div>
       </div>
     </Container>
   );
