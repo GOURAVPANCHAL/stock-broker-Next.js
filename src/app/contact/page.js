@@ -117,10 +117,10 @@ const Contact = () => {
                     <Email sx={{ marginRight: 1 }} />
                     <Typography variant="body1">
                       <Link
-                        href="mailto:mdnrabhi00@gmail.com"
+                        href="mailto:brokernextgen@gmail.com"
                         sx={{ color: "black", textDecoration: "none" }}
                       >
-                        mdnrabhi00@gmail.com
+                        brokernextgen@gmail.com
                       </Link>
                     </Typography>
                   </Box>
@@ -134,6 +134,47 @@ const Contact = () => {
                     <Phone sx={{ marginRight: 1 }} />
                     <Typography variant="body1">9458434778</Typography>
                   </Box>
+                  <Box className="social_icon_main">
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#000", marginBottom: 1 }}
+                    >
+                      Contact With Me:
+                    </Typography>
+                    <Box
+                      className="social_icons"
+                      style={{ background: "red", color: "white" }}
+                    >
+                      <Link
+                        href="https://www.youtube.com/@NEXTGENBroker"
+                        target="_blank"
+                        sx={{
+                          color: "inherit",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          height: "100%",
+                        }}
+                      >
+                        <YouTube />
+                      </Link>
+                    </Box>
+                    <Box className="social_icons insta">
+                      <Link
+                        href="https://www.instagram.com/nxtgen_broker/"
+                        target="_blank"
+                        sx={{
+                          color: "inherit",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          height: "100%",
+                        }}
+                      >
+                        <Instagram />
+                      </Link>
+                    </Box>
+                  </Box>
                 </Box>
               </Box>
             </Grid>
@@ -146,10 +187,7 @@ const Contact = () => {
                 >
                   Contact us
                 </Typography>
-                <form
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
-                >
+                <form action="https://api.web3forms.com/submit" method="POST">
                   <input
                     type="hidden"
                     name="access_key"

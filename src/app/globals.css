@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -72,11 +72,33 @@
   width: 20px;
 }
 
-.tradingview-widget-container{
+.tradingview-widget-container {
   height: 60vh !important;
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.insta{
+  color: white;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); ;
+}
+
+.social_icons {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.social_icon_main {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 @media only screen and (min-width: 992px) {
