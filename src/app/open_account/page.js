@@ -18,18 +18,18 @@ function ApplicationForm() {
       <Box>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center", mt: 4 }}>
-            <Typography variant="h4" gutterBottom sx={{ color: "#2E3B55" }}>
-              Invest in Tomorrow
+            <Typography variant="h4" mb={5} gutterBottom sx={{ color: "#2E3B55" }}>
+              Trading Patience & Consistency Are The Key Of Success
             </Typography>
-            <Typography variant="h6" sx={{ color: "#4CAF50" }}>
+            {/* <Typography variant="h6" sx={{ color: "#4CAF50" }}>
               Open Your <strong>Free</strong> Demat & Trading Account Now!
-            </Typography>
+            </Typography> */}
             <Box sx={{ mt: 2 }}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
                   <Box>
                     <Typography variant="h6" gutterBottom>
-                      New Application Details
+                      Fill Your Details
                     </Typography>
                     <form
                       action="https://api.web3forms.com/submit"

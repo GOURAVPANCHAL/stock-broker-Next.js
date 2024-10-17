@@ -24,27 +24,6 @@ import "../globals.css";
 import Head from "next/head";
 
 const Contact = () => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        alert("Form submitted successfully!");
-      } else {
-        alert("Error submitting the form. Please try again.");
-      }
-    } catch (error) {
-      console.error("Form submission error: ", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
-
   return (
     <>
       <Head>
@@ -167,7 +146,15 @@ const Contact = () => {
                 >
                   Contact us
                 </Typography>
-                <form onSubmit={handleSubmit}>
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                >
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="93050634-19bf-4b2c-82ee-e55ebea824b9"
+                  />
                   <TextField
                     type="text"
                     name="name"

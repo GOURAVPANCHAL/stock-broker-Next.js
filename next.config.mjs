@@ -12,7 +12,7 @@ const nextConfig = {
       },
     ],
   },
-  output: 'export', // If needed, you can keep this commented or uncomment it
+  // output: 'export', 
 };
 
 export default nextConfig;
